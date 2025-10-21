@@ -1,0 +1,345 @@
+/* ===== Global ===== */
+body {
+  font-family: "Arial", fantasy; 
+  background-color: #D2B48C;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 10px;
+  border: 0;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  color: #5C4033;
+  text-align: center;
+  margin: 20px;
+  font-family: 'Arial', cursive;
+}
+
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.dispo {
+  font-family: 'Arial', cursive;
+  font-size: 4rem;
+  color: #5C4033;
+  text-align: center;
+  margin: 1.5rem auto;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 90%;
+}
+
+#apresentacao {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #D2B48C;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.titulo-destaque {
+  font-family: 'Lobster', cursive;
+  font-size: 4rem;
+  color: #5C4033;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== NAV ===== */
+nav {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #5C4033, #3B2F2F);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  background: linear-gradient(90deg, #3B2F2F, #5C4033);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: scaleY(1.05);
+}
+
+nav.scrolled {
+  background: linear-gradient(90deg, #422A1F, #5C4033); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  transform: scaleY(1.02);
+}
+
+/* ===== Capa ===== */
+#capa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background-color: #D2B48C;
+  color: #5C4033;
+  padding: 0 20px;
+}
+
+#capa h1 {
+  font-size: 3rem;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 2px;
+  max-width: 800px;
+}
+
+/* ===== Cards ===== */
+.massagem-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  padding-bottom: 60px;
+}
+
+.massagem-card {
+  width: 280px;
+  height: 380px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.massagem-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.card-front img, .card-back img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.card-front h3, .card-back h3 {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  color: #5C4033;
+}
+
+.card-back {
+  background-color: #fff3e0;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  color: #5C4033;
+  font-family: 'Pacifico', cursive;
+}
+
+.preco, .preco-back {
+  background: linear-gradient(90deg, #c49b63, #e5c07b, #b8860b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(255, 223, 150, 0.5);
+}
+
+.preco-back {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+/* ===== Botões ===== */
+.btn-agendar {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #25D366;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-agendar:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+}
+
+/* ===== Botão WhatsApp flutuante ===== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn img {
+  width: 35px;
+  height: 35px;
+}
+
+.whatsapp-btn:hover {
+  animation: pulse 1s infinite; 
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  }
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  background-color: #D2B48C;
+  color: #5C4033;
+  padding: 30px 10px;
+  font-size: 1rem;
+  border-top: 2px solid #5C4033;
+  margin-top: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer a {
+  color: #5C4033;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+footer a:hover {
+  color: #3b2a22;
+  text-decoration: underline;
+}
+
+footer .creditos {
+  font-size: 0.85rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+footer .creditos a {
+  color: #5C4033;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer .creditos a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 1024px) {
+  .titulo-destaque { font-size: 3rem; }
+  .dispo { font-size: 3rem; padding: 15px 25px; }
+  .massagem-card { width: 240px; height: 340px; }
+  #capa h1 { font-size: 2.2rem; }
+}
+
+@media (max-width: 768px) {
+  .titulo-destaque { font-size: 2.5rem; }
+  #capa h1 { font-size: 1.8rem; padding: 20px; max-width: 90%; }
+
+  .massagem-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .massagem-card {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    perspective: none;
+  }
+
+  .card-inner {
+    transform: none !important;
+  }
+
+  .massagem-card:hover .card-inner {
+    transform: none;
+  }
+
+  .card-front, .card-back {
+    position: relative;
+    width: 100%;
+    height: auto;
+    backface-visibility: visible;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+
+  .card-back {
+    transform: none;
+  }
+
+  .card-front img, .card-back img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .dispo { font-size: 2.5rem; padding: 15px 20px; }
+  .btn-agendar { padding: 8px 15px; font-size: 0.9rem; }
+  .whatsapp-btn { width: 50px; height: 50px; }
+  .whatsapp-btn img { width: 30px; height: 30px; }
+}
